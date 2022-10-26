@@ -1,0 +1,137 @@
+<!--
+
+     Feito por @omirandaleo
+
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="iconlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" class="rel">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Ilha Bela</title>
+</head>
+<body>
+   <header>
+    <a href="#" class="logo">Logo</a>
+    <divl class="menu-btn"></divl>
+    <div class="navegacao">
+        <div class="navegacao-items">
+            <a href="#" onclick="slideNav(0)">Home</a>
+            <a href="#" onclick="slideNav(1)">Sobre</a>
+            <a href="#" onclick="slideNav(2)">Contato</a>
+        </div>
+    </div>
+   </header>
+
+   <section class="home">
+    <video  class="video-slide active" src="Praia - 42894 (1).mp4" autoplay muted loop></video>
+    <video  class="video-slide" src="Fogueira - 31466.mp4" autoplay muted loop></video>
+    <video  class="video-slide" src="Floresta - 17903.mp4" autoplay muted loop></video>
+        <div class="conteudo active">
+           <h1>Venha conheçer <br>
+            <span> Ilha Bela</span></h1> 
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit quis quam neque, aliquam suscipit quos ratione sit. Dolore vel odit libero impedit officia dolores, commodi, eveniet modi quo, esse praesentium!
+            </p>
+            <a href="#" onclick="toggleVideo()">Veja o video</a>
+        </div>
+        <div class="conteudo">
+            <h1>Espaço para camping</h1> 
+             <p>
+                <span>Lorem</span> ipsum dolor sit, amet consectetur adipisicing elit. Ad ab sed commodi fugit distinctio eveniet sequi pariatur dicta eum cupiditate! Quaerat similique, harum vero soluta magni optio et iusto ipsam. <br> <br>
+
+                Lorem ipsum dolor sit amet consectetur <span>adipisicing elit</span>. Inventore, veritatis enim. Nesciunt temporibus animi reprehenderit blanditiis tempore, quo fuga voluptatibus repellendus doloremque, dolorum dolor, iusto enim! Cupiditate illo sed iusto?
+             </p>
+         </div>
+         <div class="conteudo">
+            <h1>Visite as trilhas<br> </h1> 
+             <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolore perspiciatis modi voluptatibus, culpa voluptatem hic eos. Amet voluptate molestiae, repellat temporibus rerum rem, quae non facilis et doloremque fugit.
+             </p>
+             <a href="#">Whatsapp</a>
+             <a href="#">Telefone</a>
+         </div>
+        <div class="icones-midia">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a> 
+            <a href="#"><i class="fa-brands fa-facebook-f"></i> </a>
+        </div>
+        <div class="slider-navegacao">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+   </section>
+
+   <!----- VIDEO DEMONSTRATIVO ----->
+
+   <div class="trailer">
+        <video src="PÃ´r Do Sol - 23070.mp4" controls="true"></video>
+        <img src="close.png" class="close" onclick="toggleVideo();">
+    </div>
+
+    <!----- JAVA SCRIPT -----> 
+
+    <script>
+        function toggleVideo(){
+            const trailer = document.querySelector('.trailer');
+            const video = document.querySelector('video')
+            trailer.classList.toggle('active')
+            video.currentTime = 0;
+        }
+    </script>
+
+    <!----- FIM DO JAVA SCRIPT -----> 
+
+    <!----- FIM DO VIDEO DEMONSTRATIVO ----->
+
+    <script type="text/javascript">
+
+        // Menu responsivo em javascript
+
+        const menuBtn = document.querySelector(".menu-btn")
+        const navigation = document.querySelector(".navegacao")
+
+        menuBtn.addEventListener("click", () => {
+        menuBtn.classList.toggle("active");
+        navigation.classList.toggle("active");
+        });
+
+        //Javacript da video-slide navegacao
+
+        const btns = document.querySelectorAll(".nav-btn")
+        const slides = document.querySelectorAll(".video-slide")
+        const contents = document.querySelectorAll(".conteudo")
+
+        var slideNav = function(manual){
+            btns.forEach((btn) => {
+                btn.classList.remove("active")
+            });
+
+            slides.forEach((slide) => {
+                slide.classList.remove("active")
+            });
+
+            contents.forEach((content) => {
+                content.classList.remove("active")
+            });
+
+            
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+
+        btns.forEach((btn,i) => {
+            btn.addEventListener("click", () => {
+                slideNav(i);
+            });
+        });
+    </script>
+
+</body>
+</html>
